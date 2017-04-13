@@ -1,0 +1,28 @@
+[user]
+	name = El David Cordero Chavarría
+	email = dacoch215@estudiantec.cr
+[push]
+	default = simple
+	followTags = true
+[core]
+	autocrlf = input
+	filemode = false
+	editor = vim
+[alias]
+  diffc = diff --cached
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	plog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	type = cat-file -t
+	dump = cat-file -p
+[color]
+	ui = true
+[branch]
+	autosetuprebase = always
+[credential]
+	helper = cache --timeout 7200
+[merge]
+	tool = meld
