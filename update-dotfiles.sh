@@ -3,6 +3,7 @@
 CURR_DIR=$PWD
 
 REPO_DIR="$HOME/stuff/dotfiles"
+SCRIPT_DIR="$HOME/stuff/scripts/update-dotfiles.sh"
 
 if [ -d "$REPO_DIR" ]; then
     cp -r $HOME/.tmux.conf    $REPO_DIR
@@ -14,11 +15,15 @@ if [ -d "$REPO_DIR" ]; then
 
     cd $REPO_DIR
 
+    diff $SCRIPT_DIR update-dotfiles.sh
+    ret=$?
+    if [ $ret -ne 0 ]; then
+      cp -r $SCRIPT_DIR update-dotfiles.sh
+    fi
+    unset ret
+
     git add --all && git commit -m "update dotfiles $(date '+%F %H:%M')"
 
-    # remember to keep ssh agent ready if using ssh
-    # otherwise this will show the annoying prompt
-    # for a password
     git push
 
     cd $CURR_DIR
@@ -26,5 +31,6 @@ else
     echo "$REPO_DIR does not exist!"
 fi
 
+unset SCRIPT_DIR
 unset CURR_DIR
 unset REPO_DIR
