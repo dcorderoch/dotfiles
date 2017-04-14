@@ -10,6 +10,7 @@ if [ -d "$REPO_DIR" ]; then
     cp -r $HOME/.gitconfig    $REPO_DIR
     cp -r $HOME/.bashrc       $REPO_DIR
     cp -r $HOME/.bash_aliases $REPO_DIR
+    cp -r $HOME/.zshrc        $REPO_DIR
     cp -r $HOME/.i3           $REPO_DIR
     cp -r $HOME/.vimrc        $REPO_DIR
 
