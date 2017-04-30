@@ -57,5 +57,3 @@ alias mute="pactl set-sink-volume 0 0%"
 alias operativos="cd /data/odrive/Estudiantec/TEC/2017-I/OS"
 alias myusedspace='df -hal | grep -E "Filesystem|home|data|\/$"'
 alias pernix="cd ~/code/pernix"
-#alias machine="virtualbox --startvm ugnome --fullscreen > /dev/null 2>&1 &"
-alias machine='"VBoxManage startvm ugnome --type headless > /dev/null 2>&1 &"'
