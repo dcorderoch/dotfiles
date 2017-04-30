@@ -37,3 +37,6 @@ tdpause()    { transmission-remote -l | grep -v ETA | grep -v Sum | awk '{print 
 tdunpause()  { transmission-remote -l | grep -v ETA | grep -v Sum | awk '{print $1}' | xargs -n 1 -I % transmission-remote -t % --start ;}
 tdgetpeers() { transmission-remote -t "$1" --reannounce ;}
 tdcontinue() { transmission-remote -t "$1" --start ;}
+
+# force tmux to use 256 colors
+alias tmux="tmux -2"

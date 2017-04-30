@@ -3,7 +3,7 @@
 autoload -Uz promptinit
 promptinit
 
-PROMPT='%F{red}%n%f@%F{blue}%m%f%F{yellow}:%1~%f>'
+PROMPT='%F{red}%n%f@%F{cyan}%m%f%F{magenta}:%1~%f>'
 
 setopt histignorealldups sharehistory
 
