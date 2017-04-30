@@ -25,6 +25,8 @@ set cursorcolumn                         "highlight the current column. Visible 
 
 set background=dark                      "make vim use colors that look good on a dark background
 
+colorscheme solarized
+
 set showcmd                              "show incomplete cmds down the bottom
 set showmode                             "show current mode down the bottom
 set foldenable                           "enable folding

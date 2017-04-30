@@ -2,7 +2,8 @@
 
 autoload -Uz promptinit
 promptinit
-prompt adam1
+
+PROMPT='%F{red}%n%f@%F{blue}%m%f%F{yellow}:%1~%f>'
 
 setopt histignorealldups sharehistory
 
@@ -39,8 +40,8 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 export HISTSIZE=1000
 HH_CONFIG=keywords,hicolor
 
-bindkey "\e[1~" beginning-f-line
-bindkey "\e[4~" end-f-line
+bindkey "\e[1~" beginning-of-line
+bindkey "\e[4~" end-of-line
 bindkey "\C-r" "\eqhh --\n"
 
 source ~/.bash_aliases
