@@ -22,7 +22,7 @@ alias reboot='sudo shutdown -r now'
 alias hibernate='sudo pm-hibernate'
 
 # open-pdf alias
-openpdf() { which xpdf && `xpdf "$1" > /dev/null 2>&1` || `evince "$1" > /dev/null 2>&1` & }
+openpdf() { which xpdf && `xpdf "$1" > /dev/null 2>&1 &` || `evince "$1" > /dev/null 2>&1 &` }
 
 # git aliases
 alias gs='git status '
@@ -51,10 +51,11 @@ function net2results { raw=$(cat $1 | grep -Eiv "^(\.|\*)"); components=$(echo $
 alias tg='/home/dcipher/code/tg/bin/telegram-cli -N'
 alias espe="cd /data/odrive/Estudiantec/TEC/2016-II/Software_Specification_and_Design/"
 del() { trash "$1"; }
-alias fullvolume="pactl set-sink-volume 1 150%"
-alias lowvolume="pactl set-sink-volume 1 50%"
-alias mute="pactl set-sink-volume 0%"
+alias fullvolume="pactl set-sink-volume 0 150%"
+alias lowvolume="pactl set-sink-volume 0 50%"
+alias mute="pactl set-sink-volume 0 0%"
 alias operativos="cd /data/odrive/Estudiantec/TEC/2017-I/OS"
 alias myusedspace='df -hal | grep -E "Filesystem|home|data|\/$"'
 alias pernix="cd ~/code/pernix"
-alias machine="virtualbox --startvm ugnome --fullscreen > /dev/null 2>&1 &"
+#alias machine="virtualbox --startvm ugnome --fullscreen > /dev/null 2>&1 &"
+alias machine='"VBoxManage startvm ugnome --type headless > /dev/null 2>&1 &"'

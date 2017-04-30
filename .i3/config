@@ -21,7 +21,7 @@ font pango:Terminus 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec st
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -126,10 +126,16 @@ assign [class="Firefox"] $workspace0
 assign [class="Lxterminal"] $workspace1
 assign [class="st-256color"] $workspace1
 assign [class="X-terminal-emulator"] $workspace1
+assign [class="libreoffice-writer"] $workspace2
+assign [class="libreoffice"] $workspace2
 assign [class="Sublime_text"] $workspace2
 assign [class="texstudio"] $workspace2
 assign [class="TeXstudio"] $workspace2
-assign [class="GParted"] $workspace3
+assign [class="GParted"] $workspace2
+assign [class="remarkable"] $workspace2
+assign [class="Remarkable"] $workspace2
+assign [class="gimp"] $workspace2
+assign [class="Gimp"] $workspace2
 assign [class="slack"] $workspace3
 assign [class="Slack"] $workspace3
 assign [class="TelegramDesktop"] $workspace3
@@ -209,4 +215,4 @@ exec_always feh --bg-scale /home/dcipher/Pictures/wallpapers/nagato.png
 exec compton -f
 
 # rofi setup
-bindsym $mod+d exec "rofi -color-enabled -location 0 -color-window \\"#2F343F, #2F343F, #2F343F\\" -color-normal \\"#2F343F, #f3f4f5, #2F343F, #2F343F, #FF00FF\\" -color-active \\"#2F343F, #F3F4F5, #2F343F, #2F343F, #9575CD\\" -color-urgent \\"#2F343F, #f3f4f5, #2F343F, #2F343F, #FF00FF\\" -bw 0 -eh 1 -lines 3 -hide-scrollbar -show run -width 100 -font \\"Terminus 16\\" -separator-style none -opacity 80 -padding 397"
+bindsym $mod+d exec "rofi -color-enabled -location 0 -color-window \\"#2F343F, #2F343F, #2F343F\\" -color-normal \\"#2F343F, #f3f4f5, #2F343F, #2F343F, #FF00FF\\" -color-active \\"#2F343F, #F3F4F5, #2F343F, #2F343F, #9575CD\\" -color-urgent \\"#2F343F, #f3f4f5, #2F343F, #2F343F, #FF00FF\\" -bw 0 -eh 1 -lines 3 -hide-scrollbar -show run -width 100 -font \\"Terminus 16\\" -separator-style none -opacity 65 -padding 397"

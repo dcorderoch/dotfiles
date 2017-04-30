@@ -7,7 +7,7 @@ prompt adam1
 setopt histignorealldups sharehistory
 
 # Use emacs keybindings even if our EDITOR is set to vi
-#bindkey -e
+bindkey -e
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
@@ -36,5 +36,11 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-bindkey    "\e[1~"    beginning-of-line
-bindkey    "\e[4~"   end-of-line
+export HISTSIZE=1000
+HH_CONFIG=keywords,hicolor
+
+bindkey "\e[1~" beginning-f-line
+bindkey "\e[4~" end-f-line
+bindkey "\C-r" "\eqhh --\n"
+
+source ~/.bash_aliases
