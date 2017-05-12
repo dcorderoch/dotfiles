@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different N
 # is used in the bar {} block below.
-font pango:Terminus 8
+font pango:Terminus 9
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
@@ -125,6 +125,8 @@ hide_edge_borders both
 assign [class="Firefox"] $workspace0
 assign [class="Lxterminal"] $workspace1
 assign [class="st-256color"] $workspace1
+assign [class="URxvt"] $workspace1
+assign [class="urxvt"] $workspace1
 assign [class="X-terminal-emulator"] $workspace1
 assign [class="libreoffice-writer"] $workspace2
 assign [class="libreoffice"] $workspace2
@@ -211,7 +213,7 @@ bar {
         position bottom
 }
 
-exec_always feh --bg-scale /home/dcipher/Pictures/wallpapers/nagato.png
+exec_always feh --bg-scale /home/dcipher/Pictures/current-wallpaper.png
 exec compton -f
 
 # rofi setup

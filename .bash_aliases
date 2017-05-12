@@ -7,7 +7,14 @@ alias mute="pactl set-sink-volume 0 0%"
 alias myusedspace='df -hal | grep -Ei "^(\/|Filesystem)" '
 
 # open pdf and redirect output to /dev/null
-openpdf() { sh -c 'which xpdf && `xpdf "$1" > /dev/null 2>&1` || `evince "$1" > /dev/null 2>&1`' & }
+openpdf() {
+  result=$(which xpdf)
+  if [ $? -eq 0 ]; then
+    xpdf $1
+  else
+    evince $1
+  fi > /dev/null 2>&1 &
+}
 
 # misc alias
 alias getdate="$HOME/stuff/scripts/getDate.sh"
