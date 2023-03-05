@@ -1,0 +1,32 @@
+[submodule "vim-colors-solarized"]
+	path = vim-colors-solarized
+	url = git@github.com:altercation/vim-colors-solarized.git
+	branch = master
+[submodule ".vim/pack/vendor/start/vim-repeat"]
+	path = .vim/pack/vendor/start/vim-repeat
+	url = git@github.com:tpope/vim-repeat.git
+	branch = master
+[submodule ".vim/pack/vendor/start/vim-surround"]
+	path = .vim/pack/vendor/start/vim-surround
+	url = git@github.com:tpope/vim-surround.git
+	branch = master
+[submodule ".vim/pack/vendor/start/vim-sensible"]
+	path = .vim/pack/vendor/start/vim-sensible
+	url = git@github.com:tpope/vim-sensible.git
+	branch = master
+[submodule ".vim/pack/vendor/start/vim-commentary"]
+	path = .vim/pack/vendor/start/vim-commentary
+	url = git@github.com:tpope/vim-commentary.git
+	branch = master
+[submodule ".vim/pack/vendor/start/fugitive"]
+	path = .vim/pack/vendor/start/fugitive
+	url = git@github.com:tpope/fugitive.git
+	branch = master
+[submodule ".vim/pack/vendor/start/plantuml-syntax"]
+	path = .vim/pack/vendor/start/plantuml-syntax
+	url = git@github.com:aklt/plantuml-syntax.git
+	branch = master
+[submodule ".vim/pack/vendor/start/unimpaired"]
+	path = .vim/pack/vendor/start/unimpaired
+	url = git@github.com:tpope/vim-unimpaired.git
+	branch = master

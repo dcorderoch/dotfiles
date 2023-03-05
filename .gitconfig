@@ -1,0 +1,51 @@
+[alias]
+	amend = commit --amend --no-edit
+	blog = log --graph --abbrev-commit --date=short --pretty=format:'%C(red)%h%C(reset) %C(magenta)|%C(reset) %C(normal)%s%C(reset)%C(blue)%d%C(reset)'
+	br = branch
+	bra = branch --all
+	cfg = config --global
+	changes = whatchanged -p
+	check = "!f(){ git commit -m NOICE | grep -o NOICE && git reset --soft HEAD~ ;}; f"
+	classicplog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	cm = commit
+	co = checkout
+	cp = cherry-pick
+	d = difftool
+	ds = diff --staged
+	f = fetch --all
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	ignored = !git ls-files -v | grep \"^[[:lower:]]\"
+	lb = !git reflog show --pretty=format:'%gs ~ %gd' --date=relative | grep 'checkout:' | grep -oE '[^ ]+ ~ .*' | awk -F~ '!seen[$1]++' | head -n 10 | awk -F' ~ HEAD@{' '{printf(\"  \\033[33m%s: \\033[37m %s\\033[0m\\n\", substr($2, 1, length($2)-1), $1)}'
+	plog = log --graph --abbrev-commit --date=short --pretty=format:'%C(red)%h%C(reset) %C(yellow)[%ad]%C(reset) %s %C(magenta)<%an>%C(reset)%C(blue)%d%C(reset)'
+	ploga = plog --all
+	rbc = rebase --continue
+	recm = commit --amend --no-edit
+	tree = plog --all
+[branch]
+	autosetuprebase = always
+[color]
+	ui = true
+[core]
+	autocrlf = input
+	filemode = false
+	editor = vim
+[diff]
+	wsErrorHighlight = all
+	tool = vimdiff
+[difftool]
+	prompt = false
+[merge]
+	conflictStyle = diff3
+	tool = vimdiff
+[pull]
+	rebase = true
+[push]
+	default = simple
+[user]
+	name = David Cordero Chavarría
+	email = dcorderoch@ieee.org
+[safe]
+	directory = /mnt/windows/Users/elda/dev/handmade
+	directory = /mnt/windows/Users/elda/dev/docs
+[init]
+	defaultBranch = main

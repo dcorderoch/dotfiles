@@ -1,0 +1,101 @@
+########## abbreviation aliases
+alias v='vim'
+alias vi='vim'
+# alias yvim='vim -c "let g:tty='\''$(ttf)'
+alias g='git'
+alias mutt='neomutt'
+alias ta='task'
+alias taa='task add'
+alias tal='task calendar'
+alias tm='tmux'
+
+alias cel='scrcpy --turn-screen-off --show-touches --power-off-on-close -d'
+alias lancel='scrcpy --turn-screen-off --show-touches --power-off-on-close --tcpip=192.168.100.114'
+
+alias gcppfiles='git ls-files | grep "hpp\|cpp"'
+
+alias todo='alacritty -e "todo"'
+
+alias status='systemctl status'
+alias daemonstart='sudo systemctl start'
+
+########## navigation
+alias ls='exa'
+alias lst='exa --sort old'
+alias tree='exa -T'
+alias pd='pushd'
+# alias work='pushd ~/dev/work'
+
+########## media stuff
+alias pm='pulsemixer'
+
+########## development tools
+alias c='cargo'
+
+alias tfgformat='git ls-files | grep "\(hpp\|cpp\)$" | xargs -P $(nproc) -r -I {} clang-format -i --style=google {}'
+alias tfgadd='git ls-files | grep "\(hpp\|cpp\)$" | xargs -r -I {} git add {}'
+
+#alias tdd_init='mkdir -p build; pushd build; rm -rf * .ninja*; cmake -S .. -G "Ninja" -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=/opt/Qt/5.12.7/gcc_64/lib/cmake/Qt5 -DCMAKE_VERBOSE_MAKEFILE=OFF; popd'
+#alias tdd='reset; cd build; cbuilda; { [ "$?" -ne 0 ] && cd .. && echo "problem building" } || { cd test && ctest; cd ../.. }'
+#alias tddv='reset; cd build; cbuilda; { [ "$?" -ne 0 ] && cd .. && echo "problem building" } || { cd test && ctest -VV; cd ../.. }'
+#alias formatting='git add . >/dev/null && g cm -m "formatting" >/dev/null && git reset --soft HEAD^ >/dev/null && git reset HEAD >/dev/null'
+
+#alias cbuild='cmake --build . --target'
+#alias cbuilda='cmake --build . --target all'
+#alias cclean='cmake --build . --target clean'
+
+alias cbuild='[ -d build/debug ] && cmake --build build/debug --target all'
+alias cbuildrel='[ -d build/release ] && cmake --build build/release --target all'
+
+########## git aliases
+alias ga='git add'
+alias gf='git fetch --all --prune'
+alias gs='git status'
+
+########## network
+alias scp='rsync -rt --progress'
+
+# transmission cli || daemon/remote aliases
+alias tdrestart="sudo /etc/init.d/transmission-daemon start"
+alias tdstart="transmission-daemon -g /home/dcipher/.config/transmission"
+alias tdhalt="bash $HOME/stuff/scripts/tdstop.sh"
+tdclear()    { transmission-remote -l | grep 100% | awk '{print $1}' | grep -Eio '[0-9]+' | xargs -n 1 -I % transmission-remote -t % -r ;}
+tdls()       { transmission-remote -l ;}
+tdpause()    { transmission-remote -l | grep -v ETA | grep -v Sum | awk '{print $1}' | xargs -n 1 -I % transmission-remote -t % --stop ;}
+tdunpause()  { transmission-remote -l | grep -v ETA | grep -v Sum | awk '{print $1}' | xargs -n 1 -I % transmission-remote -t % --start ;}
+tdgetpeers() { transmission-remote -t "$1" --reannounce ;}
+tdcontinue() { transmission-remote -t "$1" --start ;}
+alias trem='transmission-remote'
+alias tp='transmission-remote -t all --stop && transmission-remote -l'
+alias ts='transmission-remote -t all --start && transmission-remote -l'
+
+
+########## games
+alias gp='/home/elda/GOG\ Games/Graveyard\ Keeper/start.sh&exit'
+alias sp='/home/elda/GOG\ Games/Slay\ the\ Spire/start.sh&exit'
+alias hk='/home/elda/GOG\ Games/Hollow\ Knight/start.sh&exit'
+alias ttp='/home/elda/GOG\ Games/This\ Is\ The\ Police/start.sh&exit'
+alias io='/home/elda/GOG\ Games/SHENZHEN\ IO/start.sh&exit'
+alias ib='/home/elda/GOG\ Games/Into\ the\ Breach/start.sh&exit'
+alias jotun='/home/elda/GOG\ Games/Jotun/start.sh&exit'
+alias loop='/home/elda/GOG\ Games/Loop\ Hero/start.sh&exit'
+
+########## misc
+alias pdfs='exa *.pdf | fzy | xargs -I {} echo "zathura \\\"{}\\\" &" | xargs -I {} zsh -c "{}"'
+alias qpdfs='exa *.pdf | fzy | xargs -I {} echo "mupdf \\\"{}\\\" &" | xargs -I {} zsh -c "{}"'
+alias books='exa -d ~/dox/books/* | fzy | xargs -I {} echo "zathura \\\"{}\\\" &" | xargs -r -P 1 -I {} zsh -c "{}"'
+alias eexit='exit'
+alias xit='exit'
+alias pvim='vim -u ~/dev/own/essential.vim'
+alias sw='ls -d ~/pix/*wallpaper* | fzy | xargs -I {} xwallpaper --zoom {}'
+alias myusedspace='df -hal | grep -Ei "^(\/|Filesystem)" '
+
+########## configs
+alias sshrc='vim ~/.ssh/config'
+alias vrc='vim ~/.vimrc'
+alias sha='vim ~/.sh_aliases'
+alias zrc='vim ~/.zshrc'
+alias vi3='vim ~/.config/i3/config'
+alias arc='vim ~/.alacritty.yml'
+
+alias sshsyncer='ssh -i ~/.ssh/keys/syncer ubuntu@158.101.117.28'
