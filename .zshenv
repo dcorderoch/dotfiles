@@ -6,4 +6,4 @@ export SAVEHIST=100000
 export EDITOR=vim
 
 export KEYTIMEOUT=1
-. "$HOME/.cargo/env"
+[ -d "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"

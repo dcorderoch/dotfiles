@@ -6,6 +6,11 @@
 	cfg = config --global
 	changes = whatchanged -p
 	check = "!f(){ git commit -m NOICE | grep -o NOICE && git reset --soft HEAD~ ;}; f"
+	ac = "!f() { echo \"adding modified files\"; git diff --name-only | xargs -r -I {} git add {}; }; f"
+	acp = "!f(){ git add -p -- $(git diff --name-only) ;}; f"
+	nw = "!f(){ if [ \"$#\" -eq 1 1]; then git fetch --all; name=\"$1\"; git worktree add -b $name ../$name origin/master; else echo \"there can only be one! [argument]\"; fi;}; f"
+	nwfromfetch = "!f(){ name=\"$1\"; git worktree add -b $name ../$name FETCH_HEAD; }; f"
+	dw = "!f(){ if [\"$#\" -eq 1 ]; then name=\"$1\"; git worktree remove -f $name; git branch -D $name; else echo \"there can only be one! [argument]\"; fi; }; f"
 	classicplog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 	cm = commit
 	co = checkout
@@ -21,6 +26,8 @@
 	rbc = rebase --continue
 	recm = commit --amend --no-edit
 	tree = plog --all
+	wt = worktree
+	pub = "!f() { yes |} git publish; }; f"
 [branch]
 	autosetuprebase = always
 [color]
@@ -44,8 +51,5 @@
 [user]
 	name = David Cordero Chavarría
 	email = dcorderoch@ieee.org
-[safe]
-	directory = /mnt/windows/Users/elda/dev/handmade
-	directory = /mnt/windows/Users/elda/dev/docs
 [init]
 	defaultBranch = main

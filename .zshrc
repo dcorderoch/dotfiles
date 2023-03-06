@@ -99,13 +99,14 @@ if [ "${HAVE_TASK}" = "1" ]; then
   alias taa='task add'
   alias tal='task calendar'
   fi
+unset HAVE_TASK
 
 HAVE_MUTT=0
 command -v neomutt > /dev/null && HAVE_MUTT=1
 if [ "${HAVE_MUTT}" = "1" ]; then
   alias mutt='neomutt'
 fi
-unset HAVE_TASK
+unset HAVE_MUTT
 
 HAVE_EXA=0
 command -v exa > /dev/null && HAVE_EXA=1
@@ -115,18 +116,6 @@ if [ "${HAVE_EXA}" = "1" ]; then
   alias tree='exa -T'
 fi
 unset HAVE_EXA
-
-man() {
-  env \
-  LESS_TERMCAP_mb="$(printf "\e[1;31m")" \
-  LESS_TERMCAP_md="$(printf "\e[1;31m")" \
-  LESS_TERMCAP_me="$(printf "\e[0m")" \
-  LESS_TERMCAP_se="$(printf "\e[0m")" \
-  LESS_TERMCAP_so="$(printf "\e[1;44;33m")" \
-  LESS_TERMCAP_ue="$(printf "\e[0m")" \
-  LESS_TERMCAP_us="$(printf "\e[1;32m")" \
-  man "${@}"
-}
 
 ssh-add -l &>/dev/null
 if [ "$?" = 2 ]; then
@@ -140,20 +129,14 @@ if [ "$?" = 2 ]; then
   fi
 fi
 
+[ -d "$HOME/dev/sw/android" ] && alias sdkmanager="$HOME/dev/sw/android/tools/bin/sdkmanager --sdk_root=$HOME/dev/sw/android"
 [ -d "/usr/local/go" ] && export PATH="/usr/local/go/bin:$PATH"
-[ -d "$HOME/.hookbin" ] && export PATH="$HOME/.hookbin:$PATH"
+[ -f /usr/share/nvm/init-nvm.sh ] && . /usr/share/nvm/init-nvm.sh
+
 [ -d "$HOME/.bin" ] && export PATH="$HOME/.bin:$PATH"
 [ -d "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
 
 [ -f ~/.sh_aliases ] && . ~/.sh_aliases
-
-
-export BROWSER=firefox
-
-# export SIGNHP=1
-
-[ -f /usr/share/nvm/init-nvm.sh ] && . /usr/share/nvm/init-nvm.sh
-
 [ -f ~/.workrc ] && . ~/.workrc
 
-[ -d "$HOME/dev/sw/android" ] && alias sdkmanager="$HOME/dev/sw/android/tools/bin/sdkmanager --sdk_root=$HOME/dev/sw/android"
+export BROWSER=firefox
