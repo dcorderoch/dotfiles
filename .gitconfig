@@ -28,6 +28,8 @@
 	tree = plog --all
 	wt = worktree
 	pub = "!f() { yes |} git publish; }; f"
+	r = restore
+	rs = restore --staged
 [branch]
 	autosetuprebase = always
 [color]

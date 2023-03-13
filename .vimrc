@@ -174,7 +174,7 @@ function! FzyCommand(choice_command, vim_command)
 endfunction
 
 "nnoremap <Leader>e :call FzyCommand("find . -type f", ":e")<CR>
-nnoremap <Leader>e :call FzyCommand("rg . -l -g   ''", ":e")<CR>
+nnoremap <Leader>e :call FzyCommand("git ls-files ", ":e")<CR>
 
 "map <Leader>- :resize -1<CR>
 "map <Leader>+ :resize +1<CR>
