@@ -66,7 +66,9 @@ alias reload='source $HOME/.zshrc'
 
 [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f ~/.zsh/safe-paste.plugin.zsh ] && source ~/.zsh/safe-paste.plugin.zsh
 
 # this is a fix for the autosuggestions that don't show in a solarized dark theme on the shell
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
