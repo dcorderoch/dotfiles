@@ -50,7 +50,7 @@ alias cbuildrel='[ -d build/release ] && cmake --build build/release --target al
 ########## git aliases
 alias ga='git add'
 alias gf='git fetch --all --prune'
-alias gs='git status'
+alias gs='git status -uno'
 
 ########## network
 alias scp='rsync -rt --progress'
